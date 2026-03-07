@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap");
+@import "tailwindcss";
+
+@theme inline {
+  --font-title: "Poppins", sans-serif;
+  --font-text: "Inter", sans-serif;
+
+  --color-background: #FFF7ED;
+  --color-foreground: #442F1E;
+  --color-primary: #F43F5E;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-text;
+
+    ::selection {
+      @apply bg-primary/30;
+    }
+
+    a,
+    button,
+    label {
+      @apply cursor-pointer;
+    }
+  }
+}
