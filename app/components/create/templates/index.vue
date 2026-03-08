@@ -8,6 +8,7 @@ import {
 
 const {
   selectedOccasion,
+  selectedTemplate,
   setStep,
 } = useCreate();
 
@@ -44,13 +45,20 @@ function handleHoverLeave() {
         v-for="({ slug, name, theme }) in templateOptions"
         :key="slug">
         <button
-          class="group flex flex-col items-center gap-y-2 w-full max-w-2xs mx-auto duration-300"
+          class="relative group flex flex-col items-center gap-y-2 w-full max-w-2xs mx-auto duration-300"
           :class="[
             (hoveringTemplate && hoveringTemplate !== slug) && 'grayscale-60 blur-xs'
           ]"
           @click="handleTemplateSelection(slug as Template)"
           @pointerenter="handleHoverTemplate(slug as Template)"
           @pointerleave="handleHoverLeave">
+          <div
+            v-if="slug === selectedTemplate"
+            class="absolute top-1 right-1 grid place-content-center size-8 bg-white rounded-full z-50">
+            <Icon
+              name="material-symbols:check-circle-rounded"
+              class="text-emerald-500 text-3xl" />
+          </div>
           <CreateTemplatesPreview
             :theme="theme"
             class="w-full group-hover:scale-105 duration-300" />

@@ -35,14 +35,14 @@ export enum Occasion {
   ANNIVERSARY = "anv",
   BIRTHDAY = "bdy",
   // CHRISTMAS = "xmas",
-  // WISHES = "wsh",
+  WISHES = "wsh",
 };
 
 export const OCCASION_MAP: Record<Occasion, string> = {
   [Occasion.ANNIVERSARY]: "Anniversary",
   [Occasion.BIRTHDAY]: "Birthday",
   // [Occasion.CHRISTMAS]: "Christmas",
-  // [Occasion.WISHES]: "Wishes",
+  [Occasion.WISHES]: "Wishes",
 } as const;
 
 
@@ -79,7 +79,18 @@ export const TEMPLATES: Record<Occasion, Array<TemplateDef>> = {
   ],
   // [Occasion.CHRISTMAS]: [
   // ],
-  // [Occasion.WISHES]: [
-  // ],
+  [Occasion.WISHES]: [
+    CRIMSON_GLOW_TEMPLATE,
+    CELESTIAL_SKY_TEMPLATE,
+    EMERALD_BREEZE_TEMPLATE,
+    GOLDEN_IVORY_TEMPLATE,
+    OBSIDIAN_SILVER_TEMPLATE,
+    COSMIC_TEMPLATE,
+    ROYAL_RED_TEMPLATE,
+    ROYAL_BLUE_TEMPLATE,
+    ROYAL_GREEN_TEMPLATE,
+    STRAWBERRY_MARSHMALLOW_TEMPLATE,
+    NEON_GREEN_TEMPLATE,
+  ],
 } as const;
 export type TemplateOptions = typeof TEMPLATES[Occasion];

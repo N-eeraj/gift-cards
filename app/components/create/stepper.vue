@@ -1,18 +1,50 @@
 <script setup lang="ts">
 import {
   CREATION_STEP_ORDER,
+  CreationStep,
 } from "~/definitions";
 
 const {
   currentStepIndex,
   setStep,
 } = useCreateStepper();
+const {
+  selectedOccasion,
+  selectedTemplate,
+} = useCreate();
+
+const steps = computed<Array<{ step: CreationStep, disabled: boolean }>>(() => {
+  return CREATION_STEP_ORDER
+    .map((step) => {
+      let isDisabled = false;
+
+      // steps requiring template
+      if ([
+        CreationStep.CUSTOMIZE,
+        CreationStep.PREVIEW,
+      ].includes(step)) {
+        isDisabled = !selectedTemplate.value;
+      }
+
+      // steps requiring occasion
+      if ([
+        CreationStep.TEMPLATE,
+      ].includes(step)) {
+        isDisabled = !selectedOccasion.value;
+      }
+
+      return {
+        step,
+        disabled: isDisabled,
+      }
+    });
+});
 </script>
 
 <template>
   <ul class="flex justify-evenly items-center gap-x-2 w-5/6 mx-auto">
     <li
-      v-for="(step, index) in CREATION_STEP_ORDER"
+      v-for="({ step, disabled }, index) in steps"
       :key="step"
       class="relative flex-1 after:transition-all after:duration-300"
       :class="{
@@ -21,6 +53,7 @@ const {
         'after:bg-zinc-300': currentStepIndex <= index,
       }">
       <Button
+        :disabled
         class="relative grid place-content-center size-10 mx-auto p-1 text-base! rounded-full! text-shadow-xs z-10"
         :class="{
           'bg-zinc-300!': currentStepIndex < index,
