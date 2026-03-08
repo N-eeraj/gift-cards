@@ -1,5 +1,5 @@
 <template>
-  <header class="flex max-md:flex-col gap-x-20 gap-y-10 items-center max-w-5xl xl:max-w-6xl mx-auto max-lg:px-6 py-10 sm:py-20">
+  <header class="flex max-md:flex-col gap-x-20 gap-y-10 items-center max-w-5xl xl:max-w-6xl mx-auto max-xl:px-6 py-10 sm:py-20">
     <div class="sm:flex-2 flex flex-col items-center md:items-start gap-y-1">
       <h2 class="max-w-md font-title text-[32px] md:text-5xl font-semibold max-md:text-center text-foreground leading-none">
         Create Beautiful Greeting Cards in Seconds

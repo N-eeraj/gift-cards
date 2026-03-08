@@ -1,7 +1,8 @@
 <template>
-  <Navbar />
-  <HomeHero />
-  <HomeHowItWorks />
-  <HomeExamples />
-  <HomeCTA />
+  <main>
+    <HomeHero />
+    <HomeHowItWorks />
+    <HomeExamples />
+    <HomeCTA />
+  </main>
 </template>
