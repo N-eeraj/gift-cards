@@ -11,7 +11,10 @@ const {
 } = useCreate();
 
 function handleOccasionSelection(occasion: Occasion) {
-  setStep(CreationStep.TEMPLATE, { occasion });
+  setStep(CreationStep.TEMPLATE, {
+    occasion,
+    template: undefined,
+  });
 }
 </script>
 
