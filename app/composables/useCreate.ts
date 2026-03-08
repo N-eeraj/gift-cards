@@ -11,7 +11,7 @@ export default function useCreate() {
   const route = useRoute();
   const router = useRouter();
 
-  function setStep(step: CreationStep, data: Record<string, string | undefined> = {}) {
+  const setStep = (step: CreationStep, data: Record<string, string | undefined> = {}) => {
     router.push({
       query: {
         ...route.query,
@@ -22,13 +22,19 @@ export default function useCreate() {
   }
 
   const currentStep = computed<CreationStep>(() => {
-    const query = String(route.query.step ?? "").toLowerCase();
+    const query = String(route.query.step ?? "")
+      .toLowerCase() as CreationStep;
+
+    return query;
+  });
+
+  const validateQuery = () => {
     const isInvalidQuery = !Object.values(CreationStep)
-      .includes(query as CreationStep);
+      .includes(currentStep.value);
 
     // basic + template guard
     if (
-      !query // no query
+      !currentStep.value // no query
       || isInvalidQuery // invalid query
       || !selectedOccasion.value // occasion not selected
     ) {
@@ -40,15 +46,19 @@ export default function useCreate() {
     }
 
     // customize guard
-    if (!selectedTemplate.value) {
+    if (
+      !selectedTemplate.value
+      && currentStep.value !== CreationStep.OCCASION
+    ) {
       setStep(CreationStep.TEMPLATE, {
         template: undefined,
       });
       return CreationStep.TEMPLATE;
     }
+  };
 
-    return query as CreationStep;
-  });
+  onMounted(validateQuery);
+  watch(() => currentStep.value, validateQuery);
 
   const currentStepIndex = computed(() => CREATION_STEP_ORDER.indexOf(currentStep.value));
 

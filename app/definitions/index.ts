@@ -1,0 +1,85 @@
+import {
+  Template,
+  type TemplateDef,
+  COSMIC_TEMPLATE,
+  GOLDEN_IVORY_TEMPLATE,
+  OBSIDIAN_SILVER_TEMPLATE,
+  ROYAL_BLUE_TEMPLATE,
+  ROYAL_GREEN_TEMPLATE,
+  ROYAL_RED_TEMPLATE,
+  STRAWBERRY_MARSHMALLOW_TEMPLATE,
+  CRIMSON_GLOW_TEMPLATE,
+  CELESTIAL_SKY_TEMPLATE,
+  EMERALD_BREEZE_TEMPLATE,
+  NEON_GREEN_TEMPLATE,
+} from "~/definitions/templates"
+
+// steps
+export enum CreationStep {
+  OCCASION = "occasion",
+  TEMPLATE = "template",
+  CUSTOMIZE = "customize",
+  PREVIEW = "preview",
+};
+
+export const CREATION_STEP_ORDER = [
+  CreationStep.OCCASION,
+  CreationStep.TEMPLATE,
+  CreationStep.CUSTOMIZE,
+  CreationStep.PREVIEW,
+] as const;
+
+
+// occasions
+export enum Occasion {
+  ANNIVERSARY = "anv",
+  BIRTHDAY = "bdy",
+  // CHRISTMAS = "xmas",
+  // WISHES = "wsh",
+};
+
+export const OCCASION_MAP: Record<Occasion, string> = {
+  [Occasion.ANNIVERSARY]: "Anniversary",
+  [Occasion.BIRTHDAY]: "Birthday",
+  // [Occasion.CHRISTMAS]: "Christmas",
+  // [Occasion.WISHES]: "Wishes",
+} as const;
+
+
+// templates
+export {
+  Template,
+}
+
+export const TEMPLATES: Record<Occasion, Array<TemplateDef>> = {
+  [Occasion.ANNIVERSARY]: [
+    CRIMSON_GLOW_TEMPLATE,
+    CELESTIAL_SKY_TEMPLATE,
+    EMERALD_BREEZE_TEMPLATE,
+    GOLDEN_IVORY_TEMPLATE,
+    OBSIDIAN_SILVER_TEMPLATE,
+    COSMIC_TEMPLATE,
+    ROYAL_RED_TEMPLATE,
+    ROYAL_BLUE_TEMPLATE,
+    ROYAL_GREEN_TEMPLATE,
+    STRAWBERRY_MARSHMALLOW_TEMPLATE,
+  ],
+  [Occasion.BIRTHDAY]: [
+    CRIMSON_GLOW_TEMPLATE,
+    CELESTIAL_SKY_TEMPLATE,
+    EMERALD_BREEZE_TEMPLATE,
+    GOLDEN_IVORY_TEMPLATE,
+    OBSIDIAN_SILVER_TEMPLATE,
+    COSMIC_TEMPLATE,
+    ROYAL_RED_TEMPLATE,
+    ROYAL_BLUE_TEMPLATE,
+    ROYAL_GREEN_TEMPLATE,
+    STRAWBERRY_MARSHMALLOW_TEMPLATE,
+    NEON_GREEN_TEMPLATE,
+  ],
+  // [Occasion.CHRISTMAS]: [
+  // ],
+  // [Occasion.WISHES]: [
+  // ],
+} as const;
+export type TemplateOptions = typeof TEMPLATES[Occasion];
