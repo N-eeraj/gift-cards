@@ -1,18 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&&family=Inter:wght@400;500&display=swap");
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-title: "Poppins", sans-serif;
+  --font-title: "Gelasio", sans-serif;
   --font-text: "Inter", sans-serif;
 
-  --color-background: #FFF7ED;
-  --color-foreground: #442F1E;
-  --color-primary: #F43F5E;
+  --color-background: #FFF5F7;
+  --color-surface: #ffefec;
+  --color-foreground: #1f1f1f;
+  --color-foreground-light: #1c1c1c;
+  --color-primary: #b30305;
 }
 
 @layer base {
   body {
-    @apply bg-background text-foreground font-text;
+    @apply bg-white text-foreground-light font-text;
 
     ::selection {
       @apply bg-primary/30;
@@ -23,5 +28,11 @@
     label {
       @apply cursor-pointer;
     }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-white text-foreground;
   }
 }

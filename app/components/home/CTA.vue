@@ -1,19 +1,19 @@
 <template>
-  <footer>
-    <section class="bg-primary py-20 text-center text-white">
-      <h3 class="text-4xl font-bold">
-        Start Creating Your Card Today
-      </h3>
+  <footer class="flex flex-col items-center gap-y-3 bg-primary py-16 text-center text-white">
+    <h3 class="max-md:max-w-xs font-title text-3xl md:text-4xl font-medium leading-none">
+      Start Creating Your Card Today
+    </h3>
 
-      <p class="mt-4 text-lg">
-        It only takes a few minutes to design something special.
-      </p>
+    <p class="text-lg text-surface leading-tight">
+      It only takes a few minutes to design something special.
+    </p>
 
-      <NuxtLink to="/create">
-        <button class="mt-8 bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100">
-          Create Your Card
-        </button>
-      </NuxtLink>
-    </section>
+    <NuxtLink
+      to="/create"
+      class="mt-3">
+      <Button variant="secondary">
+        Create Your Card
+      </Button>
+    </NuxtLink>
   </footer>
 </template>
