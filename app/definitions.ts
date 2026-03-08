@@ -15,5 +15,13 @@ export const CREATION_STEP_ORDER = [
 export enum Occasion {
   ANNIVERSARY = "anv",
   BIRTHDAY = "bdy",
+  CHRISTMAS = "xmas",
   WISHES = "wsh",
 };
+
+export const OCCASION_MAP: Record<Occasion, string> = {
+  [Occasion.ANNIVERSARY]: "Anniversary",
+  [Occasion.BIRTHDAY]: "Birthday",
+  [Occasion.CHRISTMAS]: "Christmas",
+  [Occasion.WISHES]: "Wishes",
+} as const;

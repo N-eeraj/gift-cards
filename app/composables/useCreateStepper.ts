@@ -1,8 +1,3 @@
-import {
-  CreationStep,
-  CREATION_STEP_ORDER,
-} from "~/definitions";
-
 const TRANSLATE_TRANSITIONS = {
   forward: {
     enter: "translate-x-full",
@@ -16,30 +11,11 @@ const TRANSLATE_TRANSITIONS = {
 type Direction = keyof typeof TRANSLATE_TRANSITIONS;
 
 export default function useCreateStepper() {
-  const route = useRoute();
-  const router = useRouter();
-
-  function setStep(step: CreationStep) {
-    router.replace({
-      query: {
-        ...route.query,
-        step,
-      }
-    });
-  }
-
-  const currentStep = computed<CreationStep>(() => {
-    const query = String(route.query.step ?? "").toLowerCase();
-    const isInvalidQuery = !Object.values(CreationStep)
-      .includes(query as CreationStep);
-
-    if (!query || isInvalidQuery) {
-      setStep(CreationStep.OCCASION);
-      return CreationStep.OCCASION;
-    }
-    return query as CreationStep;
-  });
-  const currentStepIndex = computed(() => CREATION_STEP_ORDER.indexOf(currentStep.value));
+  const {
+    currentStep,
+    currentStepIndex,
+    setStep,
+  } = useCreate();
 
   const transitionClass = ref<typeof TRANSLATE_TRANSITIONS[Direction]>(TRANSLATE_TRANSITIONS.forward);
 

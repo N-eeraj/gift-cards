@@ -8,7 +8,7 @@
       </NuxtLink>
 
       <NuxtLink to="/create">
-        <Button>
+        <Button class="text-sm sm:text-base">
           Start Designing
         </Button>
       </NuxtLink>
