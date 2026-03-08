@@ -6,6 +6,14 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
+  routeRules: {
+    "/": {
+      ssr: true,
+    },
+    "**": {
+      ssr: false,
+    },
+  },
   app: {
     head: {
       title: "Gift Cards",

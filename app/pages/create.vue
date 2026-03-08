@@ -22,9 +22,9 @@ const {
         :enter-from-class="`opacity-0 ${transitionClass.enter}`"
         :leave-to-class="`opacity-0 ${transitionClass.leave}`">
         <CreateOccasions v-if="currentStep === CreationStep.OCCASION" />
-        <CreateTemplates v-else-if="currentStep === CreationStep.TEMPLATE" />
-        <CreateCustomize v-else-if="currentStep === CreationStep.CUSTOMIZE" />
-        <CreatePreview v-else-if="currentStep === CreationStep.PREVIEW" />
+        <LazyCreateTemplates v-else-if="currentStep === CreationStep.TEMPLATE" />
+        <LazyCreateCustomize v-else-if="currentStep === CreationStep.CUSTOMIZE" />
+        <LazyCreatePreview v-else-if="currentStep === CreationStep.PREVIEW" />
       </Transition>
     </section>
   </main>

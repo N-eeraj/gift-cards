@@ -2,7 +2,7 @@
   <main>
     <HomeHero />
     <HomeHowItWorks />
-    <HomeExamples />
-    <HomeCTA />
+    <LazyHomeExamples />
+    <LazyHomeCTA />
   </main>
 </template>

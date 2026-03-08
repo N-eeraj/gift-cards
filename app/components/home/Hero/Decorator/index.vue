@@ -7,7 +7,6 @@ const decorators = [
     bgGradient: "from-teal-300 to-emerald-800",
     initialClasses: "-top-5 -left-4 rotate-x-30 rotate-y-10 -rotate-z-10",
     hoverClasses: "group-hover:-top-10 group-hover:-left-15 group-hover:rotate-x-15 group-hover:-rotate-z-20 group-hover:scale-80",
-    morph: { coolDown: 3, morphTime: 2 },
     morphClass: "my-auto text-white *:text-3xl! *:sm:text-4xl! *:md:text-[42px]! *:font-title *:-translate-x-1/7! *:-translate-y-full! rotate-z-25",
   },
   {
@@ -15,7 +14,6 @@ const decorators = [
     bgGradient: "from-sky-300 to-indigo-800",
     initialClasses: "top-0 left-3 rotate-x-30 rotate-y-10 rotate-z-5",
     hoverClasses: "group-hover:-top-16 group-hover:left-10 group-hover:rotate-x-15 group-hover:rotate-z-10 group-hover:scale-80",
-    morph: { coolDown: 2.5, morphTime: 1.5 },
     morphClass: "*:left-1/2 my-auto text-white *:text-3xl! *:sm:text-4xl! *:md:text-[42px]! *:font-title *:-translate-x-1/3! *:-translate-y-full! -rotate-z-30",
   },
   {
@@ -23,17 +21,23 @@ const decorators = [
     bgGradient: "from-rose-400 to-red-800",
     initialClasses: "top-0 left-0 rotate-x-30 rotate-y-15 -rotate-z-5",
     hoverClasses: "group-hover:top-15 group-hover:rotate-x-15 group-hover:rotate-y-5 group-hover:-rotate-z-10 group-hover:scale-80",
-    morph: { coolDown: 2, morphTime: 1 },
     morphClass: "*:top-1/2 *:left-1/2 my-auto text-white *:text-3xl! *:sm:text-4xl! *:md:text-[42px]! *:font-title *:-translate-x-1/2! *:-translate-y-1/2! rotate-z-15",
   },
 ];
 
-const texts = [
+const TEXTS = [
   "Anniversary",
+  "Bakrid",
   "Birthday",
   "Christmas",
+  "Diwali",
+  "Easter",
+  "Eid",
   "New Year",
-];
+  "Onam",
+  "Valentine",
+  "Wedding",
+] as const;
 </script>
 
 <template>
@@ -51,11 +55,11 @@ const texts = [
       <HomeHeroDecoratorIconGrid
         :icon="dec.icon"
         class="absolute size-full" />
+
       <ClientOnly>
         <MorphingText
-          :texts
-          :cool-down-time="dec.morph.coolDown"
-          :morph-time="dec.morph.morphTime"
+          :texts="TEXTS.slice(index * 3).concat(TEXTS.slice(0, index * 3))"
+          :cool-down-time="2"
           :class="dec.morphClass" />
       </ClientOnly>
     </div>

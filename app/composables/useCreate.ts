@@ -11,8 +11,12 @@ export default function useCreate() {
   const route = useRoute();
   const router = useRouter();
 
-  const setStep = (step: CreationStep, data: Record<string, string | undefined> = {}) => {
-    router.push({
+  const setStep = (
+    step: CreationStep,
+    data: Record<string, string | undefined> = {},
+    replace = false,
+  ) => {
+    router[replace ? "replace" : "push"]({
       query: {
         ...route.query,
         ...data,
@@ -41,7 +45,7 @@ export default function useCreate() {
       setStep(CreationStep.OCCASION, {
         occasion: undefined,
         template: undefined,
-      });
+      }, true);
       return CreationStep.OCCASION;
     }
 
