@@ -1,13 +1,13 @@
 <script setup lang="ts">
 interface Props {
-  variant?: "primary" | "secondary"
+  variant?: "primary" | "secondary";
 }
 withDefaults(
   defineProps<Props>(),
   {
     variant: "primary",
   },
-)
+);
 </script>
 
 <template>
