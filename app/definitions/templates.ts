@@ -5,10 +5,13 @@ export enum Template {
   ROYAL_RED = "royal-red",
   ROYAL_BLUE = "royal-blue",
   ROYAL_GREEN = "royal-green",
+  IMPERIAL_PURPLE = "imperial-purple",
+  FROZEN = "frozen",
   STRAWBERRY_MARSHMALLOW = "strawberry-marshmallow",
   EMERALD_BREEZE = "emerald-breeze",
   CELESTIAL_SKY = "celestial-sky",
   CRIMSON_GLOW = "crimson-glow",
+  BUBBLEGUM = "bubblegum",
   NEON_GREEN = "neon-green",
 };
 
@@ -124,6 +127,38 @@ export const ROYAL_GREEN_TEMPLATE = {
   },
 } as const;
 
+export const IMPERIAL_PURPLE_TEMPLATE = {
+  slug: Template.IMPERIAL_PURPLE,
+  name: "Imperial Purple",
+  theme: {
+    background: {
+      from: "from-purple-700",
+      to: "to-indigo-950",
+    },
+    foreground: {
+      from: "from-amber-400",
+      to: "to-yellow-600",
+      text: "text-yellow-400",
+    },
+  },
+} as const;
+
+export const FROZEN_TEMPLATE = {
+  slug: Template.FROZEN,
+  name: "Frozen",
+  theme: {
+    background: {
+      from: "from-sky-950",
+      to: "to-blue-950",
+    },
+    foreground: {
+      from: "from-cyan-300",
+      to: "to-sky-200",
+      text: "text-sky-200",
+    },
+  },
+} as const;
+
 export const STRAWBERRY_MARSHMALLOW_TEMPLATE = {
   slug: Template.STRAWBERRY_MARSHMALLOW,
   name: "Strawberry Marshmallow",
@@ -184,6 +219,22 @@ export const CRIMSON_GLOW_TEMPLATE = {
       from: "from-rose-50",
       to: "to-red-200",
       text: "text-red-200",
+    },
+  },
+} as const;
+
+export const BUBBLEGUM_TEMPLATE = {
+  slug: Template.BUBBLEGUM,
+  name: "Bubblegum",
+  theme: {
+    background: {
+      from: "from-pink-400",
+      to: "to-rose-600",
+    },
+    foreground: {
+      from: "from-pink-50",
+      to: "to-rose-200",
+      text: "text-rose-200",
     },
   },
 } as const;

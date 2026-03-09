@@ -29,11 +29,15 @@ export const TAB_ITEMS: Array<TabItem> = [
 ] as const;
 
 export enum Pattern {
-  CAKE,
   BALLOON,
-  STAR,
+  CAKE,
   CONFETTI,
   FIREWORKS,
+  FLOWERS,
+  GIFT,
+  HEART,
+  SPARKLES,
+  STAR,
 };
 
 export interface PatternDef {
@@ -52,8 +56,34 @@ export const PATTERNS: Array<PatternDef> = [
     ],
   },
   {
+    value: Pattern.GIFT,
+    icon: "tabler:gift",
+    occasions: [
+      Occasion.ANNIVERSARY,
+      Occasion.BIRTHDAY,
+    ],
+  },
+  {
+    value: Pattern.HEART,
+    icon: "tabler:heart",
+    occasions: [
+      Occasion.ANNIVERSARY,
+      Occasion.BIRTHDAY,
+      Occasion.WISHES,
+    ],
+  },
+  {
     value: Pattern.BALLOON,
     icon: "tabler:balloon",
+    occasions: [
+      Occasion.ANNIVERSARY,
+      Occasion.BIRTHDAY,
+      Occasion.WISHES,
+    ],
+  },
+  {
+    value: Pattern.CONFETTI,
+    icon: "tabler:confetti",
     occasions: [
       Occasion.ANNIVERSARY,
       Occasion.BIRTHDAY,
@@ -70,8 +100,17 @@ export const PATTERNS: Array<PatternDef> = [
     ],
   },
   {
-    value: Pattern.CONFETTI,
-    icon: "tabler:confetti",
+    value: Pattern.SPARKLES,
+    icon: "tabler:sparkles",
+    occasions: [
+      Occasion.ANNIVERSARY,
+      Occasion.BIRTHDAY,
+      Occasion.WISHES,
+    ],
+  },
+  {
+    value: Pattern.FLOWERS,
+    icon: "tabler:flower",
     occasions: [
       Occasion.ANNIVERSARY,
       Occasion.BIRTHDAY,

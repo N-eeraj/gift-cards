@@ -40,51 +40,39 @@ const printIcon = computed(() => {
 
 <template>
   <div
-    class="relative flex flex-col justify-center items-center gap-y-6 w-full max-w-xs aspect-3/4 p-4 bg-linear-to-br rounded-lg"
+    class="relative flex flex-col justify-center items-center gap-y-6 w-full max-w-xs aspect-3/4 p-4 bg-linear-to-br rounded-lg overflow-hidden"
     :class="[
       cardTemplate.theme.background.from,
       cardTemplate.theme.background.to,
     ]">
 
-    <div
+    <GiftCardIconsGrid
       v-if="printIcon"
-      class="absolute size-full grid items-center p-4"
-      :class="[
-        size === PrintSize.SM ? 'grid-cols-8' : 'grid-cols-6',
-      ]">
-      <Icon
-        v-for="index in size === PrintSize.SM ? 48 : 24"
-        :key="index"
-        :name="printIcon"
-        class="m-auto"
-        :class="[
-          cardTemplate.theme.foreground.text,
-          size,
-        ]"
-        :style="{
-          opacity: `${visibility}%`,
-        }" />
-    </div>
+      :icon="printIcon"
+      :size
+      :visibility
+      :color="cardTemplate.theme.foreground.text"
+      class="absolute size-[110%] -rotate-5 scale-110 animate-pulse" />
 
     <h2
-      v-if="title"
-      class="bg-linear-to-tl bg-clip-text text-transparent font-title text-4xl md:text-[42px] text-center font-semibold"
+      v-if="title?.trim()"
+      class="bg-linear-to-tl bg-clip-text text-transparent font-title text-4xl md:text-[42px] text-center font-semibold z-10"
       :class="[cardTemplate.theme.foreground.from, cardTemplate.theme.foreground.to]">
-      {{ title }}
+      {{ title.trim() }}
     </h2>
 
     <h3
-      v-if="name"
-      class="bg-linear-to-tl bg-clip-text text-transparent font-title text-3xl md:text-4xl font-semibold"
+      v-if="name?.trim()"
+      class="bg-linear-to-tl bg-clip-text text-transparent font-title text-3xl md:text-4xl text-center font-semibold z-10"
       :class="[cardTemplate.theme.foreground.from, cardTemplate.theme.foreground.to]">
-      {{ name }}
+      {{ name.trim() }}
     </h3>
 
     <p
-      v-if="message"
-      class="text-lg md:text-xl wrap-anywhere"
+      v-if="message?.trim()"
+      class="max-w-5/6 mt-4 text-lg md:text-xl text-center wrap-anywhere z-10"
       :class="cardTemplate.theme.foreground.text">
-      {{ message }}
+      {{ message.trim() }}
     </p>
   </div>
 </template>
