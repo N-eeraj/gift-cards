@@ -22,6 +22,8 @@ const title = computed(() => {
       return "Happy Anniversary";
     case Occasion.BIRTHDAY:
       return "Happy Birthday";
+    case Occasion.CHRISTMAS:
+      return "Merry Christmas";
     case Occasion.WISHES:
       return "Best Wishes";
     default:
@@ -43,6 +45,6 @@ const title = computed(() => {
       :occasion="selectedOccasion"
       :template="selectedTemplate" />
 
-    <CreateCustomizeConfig class="" />
+    <CreateCustomizeConfig />
   </section>
 </template>

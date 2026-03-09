@@ -12,6 +12,7 @@ export enum Template {
   CELESTIAL_SKY = "celestial-sky",
   CRIMSON_GLOW = "crimson-glow",
   BUBBLEGUM = "bubblegum",
+  CLEAR_SKY = "clear-sky",
   NEON_GREEN = "neon-green",
 };
 
@@ -235,6 +236,22 @@ export const BUBBLEGUM_TEMPLATE = {
       from: "from-pink-50",
       to: "to-rose-200",
       text: "text-rose-200",
+    },
+  },
+} as const;
+
+export const CLEAR_SKY_TEMPLATE = {
+  slug: Template.CLEAR_SKY,
+  name: "Clear Sky",
+  theme: {
+    background: {
+      from: "from-sky-100",
+      to: "to-sky-200",
+    },
+    foreground: {
+      from: "from-sky-500",
+      to: "to-cyan-400",
+      text: "text-sky-600",
     },
   },
 } as const;

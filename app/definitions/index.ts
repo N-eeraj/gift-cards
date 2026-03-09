@@ -1,6 +1,5 @@
 import {
   Template,
-  BUBBLEGUM_TEMPLATE,
   type TemplateDef,
   COSMIC_TEMPLATE,
   GOLDEN_IVORY_TEMPLATE,
@@ -14,6 +13,8 @@ import {
   CRIMSON_GLOW_TEMPLATE,
   CELESTIAL_SKY_TEMPLATE,
   EMERALD_BREEZE_TEMPLATE,
+  BUBBLEGUM_TEMPLATE,
+  CLEAR_SKY_TEMPLATE,
   NEON_GREEN_TEMPLATE,
 } from "~/definitions/templates"
 
@@ -37,14 +38,14 @@ export const CREATION_STEP_ORDER = [
 export enum Occasion {
   ANNIVERSARY = "anv",
   BIRTHDAY = "bdy",
-  // CHRISTMAS = "xmas",
+  CHRISTMAS = "xmas",
   WISHES = "wsh",
 };
 
 export const OCCASION_MAP: Record<Occasion, string> = {
   [Occasion.ANNIVERSARY]: "Anniversary",
   [Occasion.BIRTHDAY]: "Birthday",
-  // [Occasion.CHRISTMAS]: "Christmas",
+  [Occasion.CHRISTMAS]: "Christmas",
   [Occasion.WISHES]: "Wishes",
 } as const;
 
@@ -67,6 +68,7 @@ export const TEMPLATES: Record<Occasion, Array<TemplateDef>> = {
     ROYAL_GREEN_TEMPLATE,
     IMPERIAL_PURPLE_TEMPLATE,
     COSMIC_TEMPLATE,
+    CLEAR_SKY_TEMPLATE,
     FROZEN_TEMPLATE,
     STRAWBERRY_MARSHMALLOW_TEMPLATE,
   ],
@@ -82,12 +84,26 @@ export const TEMPLATES: Record<Occasion, Array<TemplateDef>> = {
     ROYAL_GREEN_TEMPLATE,
     IMPERIAL_PURPLE_TEMPLATE,
     COSMIC_TEMPLATE,
+    CLEAR_SKY_TEMPLATE,
     FROZEN_TEMPLATE,
     STRAWBERRY_MARSHMALLOW_TEMPLATE,
     NEON_GREEN_TEMPLATE,
   ],
-  // [Occasion.CHRISTMAS]: [
-  // ],
+  [Occasion.CHRISTMAS]: [
+    CRIMSON_GLOW_TEMPLATE,
+    CELESTIAL_SKY_TEMPLATE,
+    EMERALD_BREEZE_TEMPLATE,
+    BUBBLEGUM_TEMPLATE,
+    GOLDEN_IVORY_TEMPLATE,
+    ROYAL_RED_TEMPLATE,
+    ROYAL_BLUE_TEMPLATE,
+    ROYAL_GREEN_TEMPLATE,
+    IMPERIAL_PURPLE_TEMPLATE,
+    COSMIC_TEMPLATE,
+    FROZEN_TEMPLATE,
+    CLEAR_SKY_TEMPLATE,
+    STRAWBERRY_MARSHMALLOW_TEMPLATE,
+  ],
   [Occasion.WISHES]: [
     CRIMSON_GLOW_TEMPLATE,
     CELESTIAL_SKY_TEMPLATE,
@@ -100,6 +116,7 @@ export const TEMPLATES: Record<Occasion, Array<TemplateDef>> = {
     ROYAL_GREEN_TEMPLATE,
     IMPERIAL_PURPLE_TEMPLATE,
     COSMIC_TEMPLATE,
+    CLEAR_SKY_TEMPLATE,
     FROZEN_TEMPLATE,
     STRAWBERRY_MARSHMALLOW_TEMPLATE,
     NEON_GREEN_TEMPLATE,

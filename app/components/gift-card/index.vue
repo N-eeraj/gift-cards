@@ -40,7 +40,7 @@ const printIcon = computed(() => {
 
 <template>
   <div
-    class="relative flex flex-col justify-center items-center gap-y-6 w-full max-w-xs aspect-3/4 p-4 bg-linear-to-br rounded-lg overflow-hidden"
+    class="relative flex flex-col justify-center items-center gap-y-6 w-full max-w-sm aspect-3/4 p-4 bg-linear-to-br rounded-lg overflow-hidden"
     :class="[
       cardTemplate.theme.background.from,
       cardTemplate.theme.background.to,

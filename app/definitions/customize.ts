@@ -34,6 +34,7 @@ export enum Pattern {
   CONFETTI,
   FIREWORKS,
   FLOWERS,
+  FROST,
   GIFT,
   HEART,
   SPARKLES,
@@ -69,6 +70,7 @@ export const PATTERNS: Array<PatternDef> = [
     occasions: [
       Occasion.ANNIVERSARY,
       Occasion.BIRTHDAY,
+      Occasion.CHRISTMAS,
       Occasion.WISHES,
     ],
   },
@@ -78,6 +80,7 @@ export const PATTERNS: Array<PatternDef> = [
     occasions: [
       Occasion.ANNIVERSARY,
       Occasion.BIRTHDAY,
+      Occasion.CHRISTMAS,
       Occasion.WISHES,
     ],
   },
@@ -87,6 +90,7 @@ export const PATTERNS: Array<PatternDef> = [
     occasions: [
       Occasion.ANNIVERSARY,
       Occasion.BIRTHDAY,
+      Occasion.CHRISTMAS,
       Occasion.WISHES,
     ],
   },
@@ -96,7 +100,15 @@ export const PATTERNS: Array<PatternDef> = [
     occasions: [
       Occasion.ANNIVERSARY,
       Occasion.BIRTHDAY,
+      Occasion.CHRISTMAS,
       Occasion.WISHES,
+    ],
+  },
+  {
+    value: Pattern.FROST,
+    icon: "solar:snowflake-broken",
+    occasions: [
+      Occasion.CHRISTMAS,
     ],
   },
   {
@@ -105,6 +117,7 @@ export const PATTERNS: Array<PatternDef> = [
     occasions: [
       Occasion.ANNIVERSARY,
       Occasion.BIRTHDAY,
+      Occasion.CHRISTMAS,
       Occasion.WISHES,
     ],
   },
@@ -114,6 +127,7 @@ export const PATTERNS: Array<PatternDef> = [
     occasions: [
       Occasion.ANNIVERSARY,
       Occasion.BIRTHDAY,
+      Occasion.CHRISTMAS,
       Occasion.WISHES,
     ],
   },
@@ -123,6 +137,7 @@ export const PATTERNS: Array<PatternDef> = [
     occasions: [
       Occasion.ANNIVERSARY,
       Occasion.BIRTHDAY,
+      Occasion.CHRISTMAS,
       Occasion.WISHES,
     ],
   },
