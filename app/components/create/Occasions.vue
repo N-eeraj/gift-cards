@@ -14,6 +14,9 @@ function handleOccasionSelection(occasion: Occasion) {
   setStep(CreationStep.TEMPLATE, {
     occasion,
     template: undefined,
+    "print-pattern": undefined,
+    "print-size": undefined,
+    "print-visibility": undefined,
   });
 }
 </script>

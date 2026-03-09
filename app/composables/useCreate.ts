@@ -45,6 +45,9 @@ export default function useCreate() {
       setStep(CreationStep.OCCASION, {
         occasion: undefined,
         template: undefined,
+        "print-pattern": undefined,
+        "print-size": undefined,
+        "print-visibility": undefined,
       }, true);
       return CreationStep.OCCASION;
     }

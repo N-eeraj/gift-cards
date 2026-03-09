@@ -90,9 +90,9 @@ export const PATTERNS: Array<PatternDef> = [
 ] as const;
 
 export enum PrintSize {
-  SM = "text-base",
-  MD = "text-lg",
-  LG = "text-2xl",
+  SM = "text-lg",
+  MD = "text-2xl",
+  LG = "text-4xl",
 };
 
 export const PRINT_SIZES = [
@@ -129,3 +129,5 @@ export const PRINT_VISIBILITY = [
     value: PrintVisibility.DARK,
   },
 ] as const;
+
+export const MAX_MESSAGE_LENGTH = 50 as const;

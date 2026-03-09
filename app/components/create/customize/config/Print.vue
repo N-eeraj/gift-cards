@@ -1,40 +1,16 @@
 <script setup lang="ts">
 import {
-  type Occasion,
-} from "~/definitions";
-import {
-  PATTERNS,
   PRINT_SIZES,
   PRINT_VISIBILITY,
-  PrintSize,
-  PrintVisibility,
-  type Pattern,
 } from "~/definitions/customize";
 
 const {
-  selectedOccasion,
-} = useCreate();
-
-const pattern = ref<Pattern | null>(null);
-const size = ref<PrintSize | null>(null);
-const visibility = ref<PrintVisibility | null>(null);
-
-const patternOptions = computed(() => {
-  return PATTERNS.filter(({ occasions }) => occasions.includes(selectedOccasion.value as Occasion));
-});
-
-watch(() => pattern.value, (_pattern, prevPattern) => {
-  if (prevPattern === null) {
-    size.value = PrintSize.MD;
-    visibility.value = PrintVisibility.LIGHT;
-  }
-});
-
-function clearPattern() {
-  pattern.value = null;
-  size.value = null;
-  visibility.value = null;
-}
+  pattern,
+  size,
+  visibility,
+  patternOptions,
+  clearPattern,
+} = useCreateCustomize();
 </script>
 
 <template>
