@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {
   Occasion,
+  OCCASION_TITLES,
   type Template,
 } from '~/definitions';
 
@@ -30,20 +31,7 @@ const decryptedConfig = computed(() => {
   );
 });
 
-const title = computed(() => {
-  switch (decryptedTemplate.value.occasion) {
-    case Occasion.ANNIVERSARY:
-      return "Happy Anniversary";
-    case Occasion.BIRTHDAY:
-      return "Happy Birthday";
-    case Occasion.CHRISTMAS:
-      return "Merry Christmas";
-    case Occasion.WISHES:
-      return "Best Wishes";
-    default:
-      return null;
-  }
-});
+const title = computed<typeof OCCASION_TITLES[keyof typeof OCCASION_TITLES]>(() => OCCASION_TITLES[decryptedTemplate.value.occasion!]);
 </script>
 
 <template>
@@ -61,7 +49,7 @@ const title = computed(() => {
 
     <NuxtLink
       to="/create"
-      class="font-title text-lg sm:text-xl text-primary font-medium hover:underline">
+      class="font-title md:text-lg text-primary font-medium hover:underline">
       Create your own Gift Card
     </NuxtLink>
   </main>

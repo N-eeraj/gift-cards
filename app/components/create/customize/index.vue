@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {
   Occasion,
+  OCCASION_TITLES,
 } from "~/definitions";
 
 const {
@@ -16,20 +17,7 @@ const {
   visibility,
 } = useCreateCustomize();
 
-const title = computed(() => {
-  switch (selectedOccasion.value) {
-    case Occasion.ANNIVERSARY:
-      return "Happy Anniversary";
-    case Occasion.BIRTHDAY:
-      return "Happy Birthday";
-    case Occasion.CHRISTMAS:
-      return "Merry Christmas";
-    case Occasion.WISHES:
-      return "Best Wishes";
-    default:
-      return null;
-  }
-});
+const title = computed<typeof OCCASION_TITLES[keyof typeof OCCASION_TITLES]>(() => OCCASION_TITLES[selectedOccasion.value!]);
 </script>
 
 <template>

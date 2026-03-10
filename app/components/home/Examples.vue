@@ -2,6 +2,7 @@
 import {
   Occasion,
   Template,
+  OCCASION_TITLES,
 } from "~/definitions";
 import {
   Pattern,
@@ -12,92 +13,86 @@ import {
   AppleCardCarousel,
   AppleCarouselItem,
 } from "~/components/ui/apple-card-carousel";
-
 const DEMO_CARDS = [
   {
-    title: "Happy Birthday",
     occasion: Occasion.BIRTHDAY,
     template: Template.BUBBLEGUM,
     name: "John Smith",
     pattern: Pattern.CAKE,
     size: PrintSize.MD,
     visibility: PrintVisibility.DARK,
+    message: "Have an amazing day!"
   },
   {
-    title: "Best Wishes",
     occasion: Occasion.WISHES,
     template: Template.CLEAR_SKY,
     name: "John Doe",
     pattern: Pattern.SPARKLES,
     size: PrintSize.SM,
     visibility: PrintVisibility.LIGHT,
+    message: "Wishing you the best!"
   },
-
   {
-    title: "Happy Anniversary",
     occasion: Occasion.ANNIVERSARY,
     template: Template.GOLDEN_IVORY,
     name: "Emma & Liam",
     pattern: Pattern.HEART,
     size: PrintSize.LG,
     visibility: PrintVisibility.DARK,
+    message: "Cheers to many more years!"
   },
   {
-    title: "Season's Greetings",
     occasion: Occasion.CHRISTMAS,
     template: Template.ROYAL_GREEN,
     name: "Olivia",
     pattern: Pattern.STAR,
     size: PrintSize.MD,
     visibility: PrintVisibility.LIGHT,
+    message: "Merry Christmas!"
   },
   {
-    title: "Warmest Wishes",
     occasion: Occasion.WISHES,
-    template: Template.EMERALD_BREEZE,
+    template: Template.CELESTIAL_SKY,
     name: "Noah",
     pattern: Pattern.FLOWERS,
     size: PrintSize.SM,
-    visibility: PrintVisibility.DARK,
+    visibility: PrintVisibility.DARK
   },
   {
-    title: "Happy Birthday Champ",
     occasion: Occasion.BIRTHDAY,
     template: Template.NEON_GREEN,
     name: "Aiden",
     pattern: Pattern.CONFETTI,
     size: PrintSize.MD,
     visibility: PrintVisibility.LIGHT,
+    message: "Celebrate in style!"
   },
   {
-    title: "Merry Christmas",
     occasion: Occasion.CHRISTMAS,
     template: Template.CRIMSON_GLOW,
     name: "Sophia",
     pattern: Pattern.FROST,
     size: PrintSize.LG,
     visibility: PrintVisibility.LIGHT,
+    message: "Warm holiday wishes!"
   },
   {
-    title: "Cheers to You",
     occasion: Occasion.WISHES,
-    template: Template.CELESTIAL_SKY,
+    template: Template.FROZEN,
     name: "Lucas",
     pattern: Pattern.SPARKLES,
     size: PrintSize.MD,
-    visibility: PrintVisibility.DARK,
+    visibility: PrintVisibility.DARK
   },
   {
-    title: "Forever Together",
     occasion: Occasion.ANNIVERSARY,
     template: Template.IMPERIAL_PURPLE,
     name: "Mia & Ethan",
     pattern: Pattern.HEART,
     size: PrintSize.LG,
-    visibility: PrintVisibility.LIGHT,
+    visibility: PrintVisibility.LIGHT
   },
   {
-    title: "Sweet Birthday Wishes",
     occasion: Occasion.BIRTHDAY,
     template: Template.STRAWBERRY_MARSHMALLOW,
     name: "Isabella",
@@ -106,13 +101,13 @@ const DEMO_CARDS = [
     visibility: PrintVisibility.DARK,
   },
   {
-    title: "Celebrate the Day",
     occasion: Occasion.WISHES,
     template: Template.COSMIC,
     name: "James",
     pattern: Pattern.STAR,
     size: PrintSize.MD,
     visibility: PrintVisibility.LIGHT,
+    message: "All the best!"
   }
 ] as const;
 </script>
@@ -130,6 +125,7 @@ const DEMO_CARDS = [
         :index>
         <GiftCard
           v-bind="card"
+          :title="OCCASION_TITLES[card.occasion]"
           class="w-xs" />
       </AppleCarouselItem>
     </AppleCardCarousel>

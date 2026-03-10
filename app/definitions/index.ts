@@ -123,3 +123,10 @@ export const TEMPLATES: Record<Occasion, Array<TemplateDef>> = {
   ],
 } as const;
 export type TemplateOptions = typeof TEMPLATES[Occasion];
+
+export const OCCASION_TITLES: Record<Occasion, string> = {
+  [Occasion.ANNIVERSARY]: "Happy Anniversary",
+  [Occasion.BIRTHDAY]: "Happy Birthday",
+  [Occasion.CHRISTMAS]: "Merry Christmas",
+  [Occasion.WISHES]: "Best Wishes",
+} as const;
