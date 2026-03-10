@@ -3,6 +3,8 @@ const occasion = useRouteQuery("occasion");
 const template = useRouteQuery("template");
 
 const {
+  name,
+  message,
   pattern,
   size,
   visibility,
@@ -11,6 +13,12 @@ const {
 const cardTemplate = computed(() => `${occasion.value}::${template.value}`);
 const cardConfig = computed(() => {
   const config: Record<string, any> = {};
+  if (name) {
+    config.name = name.value;
+  }
+  if (message) {
+    config.message = message.value;
+  }
   if (pattern) {
     config.print = {
       pattern: pattern.value,

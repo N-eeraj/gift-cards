@@ -1,14 +1,68 @@
 <script setup lang="ts">
-definePageMeta({
-  hideNavbar: true,
-});
+import {
+  Occasion,
+  type Template,
+} from '~/definitions';
 
 const route = useRoute();
-const template = computed(() => route.params.template);
-const config = computed(() => route.params.config);
+const cardTemplate = computed(() => route.params.template);
+const cardConfig = computed(() => route.params.config);
+
+interface CardTemplate {
+  occasion: Occasion;
+  template: Template;
+}
+
+const decryptedTemplate = computed<CardTemplate>(() => {
+  const [
+    occasion,
+    template,
+  ] = atob(cardTemplate.value as string ?? "")
+    .split("::") as [Occasion, Template];
+  return {
+    occasion,
+    template,
+  };
+});
+const decryptedConfig = computed(() => {
+  return(
+    JSON.parse(atob(cardConfig.value as string ?? ""))
+  );
+});
+
+const title = computed(() => {
+  switch (decryptedTemplate.value.occasion) {
+    case Occasion.ANNIVERSARY:
+      return "Happy Anniversary";
+    case Occasion.BIRTHDAY:
+      return "Happy Birthday";
+    case Occasion.CHRISTMAS:
+      return "Merry Christmas";
+    case Occasion.WISHES:
+      return "Best Wishes";
+    default:
+      return null;
+  }
+});
 </script>
 
 <template>
-  {{ template }}
-  {{ config }}
+  <main class="flex flex-col justify-center items-center gap-y-12 min-h-[calc(100svh-80px)] p-8">
+    <GiftCard
+      v-if="title"
+      :title
+      :occasion="decryptedTemplate.occasion"
+      :template="decryptedTemplate.template"
+      :name="decryptedConfig.name"
+      :message="decryptedConfig.message"
+      :pattern="decryptedConfig.print.pattern"
+      :size="decryptedConfig.print.size"
+      :visibility="decryptedConfig.print.visibility" />
+
+    <NuxtLink
+      to="/create"
+      class="font-title text-lg sm:text-xl text-primary font-medium hover:underline">
+      Create your own Gift Card
+    </NuxtLink>
+  </main>
 </template>
