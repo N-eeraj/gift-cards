@@ -6,4 +6,7 @@ const showNavbar = computed(() => !route.meta.hideNavbar);
 <template>
   <Navbar v-if="showNavbar" />
   <NuxtPage />
+  <ClientOnly>
+    <Toaster />
+  </ClientOnly>
 </template>
