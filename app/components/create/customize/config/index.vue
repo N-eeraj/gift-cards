@@ -1,9 +1,20 @@
 <script setup lang="ts">
 import {
+  CreationStep,
+} from "~/definitions";
+import {
   Tab,
 } from "~/definitions/customize";
 
 const activeTab = ref<Tab>(Tab.DETAILS);
+
+const {
+  setStep,
+} = useCreate();
+
+function showPreview() {
+  setStep(CreationStep.PREVIEW);
+}
 </script>
 
 <template>
@@ -19,7 +30,11 @@ const activeTab = ref<Tab>(Tab.DETAILS);
       leave-to-class="opacity-0">
       <CreateCustomizeConfigDetails v-if="activeTab === Tab.DETAILS" />
       <CreateCustomizeConfigPrint v-else-if="activeTab === Tab.PRINT" />
-      <CreateCustomizeConfigMusic v-else-if="activeTab === Tab.MUSIC" />
+      <!-- <CreateCustomizeConfigMusic v-else-if="activeTab === Tab.MUSIC" /> -->
     </Transition>
+
+    <Button @click="showPreview">
+      Continue
+    </Button>
   </section>
 </template>
