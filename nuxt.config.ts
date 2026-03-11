@@ -16,7 +16,38 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: "Gift Cards",
+      title: "GiftCards | Customize & Send Instantly",
+      meta: [
+        {
+          charset: "utf-8",
+        },
+        {
+          name: "viewport",
+          content: "width=device-width, initial-scale=1",
+        },
+        {
+          name: "robots",
+          content: "index, follow",
+        },
+        {
+          property: "og:title",
+          content: "GiftCards | Customize & Send Instantly",
+        },
+        {
+          property: "og:type",
+          content: "website",
+        },
+        {
+          property: "og:url",
+          content: import.meta.env.WEBSITE_URL,
+        },
+      ],
+      link: [
+        {
+          rel: "canonical",
+          href: import.meta.env.WEBSITE_URL,
+        },
+      ]
     },
   },
   css: [

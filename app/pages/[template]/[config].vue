@@ -35,7 +35,7 @@ const title = computed<typeof OCCASION_TITLES[keyof typeof OCCASION_TITLES]>(() 
 </script>
 
 <template>
-  <main class="flex flex-col justify-center items-center gap-y-12 min-h-[calc(100svh-80px)] p-8">
+  <main class="flex flex-col justify-center items-center gap-y-12 min-h-[calc(100svh-80px)] p-8 pb-2">
     <GiftCard
       v-if="title"
       :title
@@ -45,11 +45,12 @@ const title = computed<typeof OCCASION_TITLES[keyof typeof OCCASION_TITLES]>(() 
       :message="decryptedConfig.message"
       :pattern="decryptedConfig.print.pattern"
       :size="decryptedConfig.print.size"
-      :visibility="decryptedConfig.print.visibility" />
+      :visibility="decryptedConfig.print.visibility"
+      class="my-auto" />
 
     <NuxtLink
       to="/create"
-      class="font-title md:text-lg text-primary font-medium hover:underline">
+      class="mt-auto font-title text-sm md:text-lg text-primary font-medium hover:underline">
       Create your own Gift Card
     </NuxtLink>
   </main>
