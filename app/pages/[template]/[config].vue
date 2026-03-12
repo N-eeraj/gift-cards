@@ -18,7 +18,7 @@ const decryptedTemplate = computed<CardTemplate>(() => {
   const [
     occasion,
     template,
-  ] = atob(cardTemplate.value as string ?? "")
+  ] = decode(cardTemplate.value as string ?? "")
     .split("::") as [Occasion, Template];
   return {
     occasion,
@@ -27,7 +27,7 @@ const decryptedTemplate = computed<CardTemplate>(() => {
 });
 const decryptedConfig = computed(() => {
   return(
-    JSON.parse(atob(cardConfig.value as string ?? ""))
+    JSON.parse(decode(cardConfig.value as string ?? ""))
   );
 });
 

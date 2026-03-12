@@ -32,8 +32,8 @@ const cardConfig = computed(() => {
   return "";
 });
 
-const encryptedCardTemplate = computed(() => btoa(cardTemplate.value));
-const encryptedCardConfig = computed(() => btoa(cardConfig.value));
+const encryptedCardTemplate = computed(() => encode(cardTemplate.value));
+const encryptedCardConfig = computed(() => encode(cardConfig.value));
 
 const url = computed(() => `${window.location.host}/${encryptedCardTemplate.value}/${encryptedCardConfig.value}`);
 
